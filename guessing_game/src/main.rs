@@ -7,9 +7,15 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    println!("The secret number is: {secret_number}");
+    //println!("The secret number is: {secret_number}");
+    let mut correct: bool = false;
 
-    loop {
+    for i in 0..10 {
+        print!("\nYou have {} chance", 10 - i);
+        if i < 9 {
+            println!("s");
+        }
+
         println!("Input the number you guess:");
 
         let mut guess = String::new();
@@ -29,9 +35,15 @@ fn main() {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
-                println!("You win!");
+                correct = true;
                 break;
             }
         }
+    }
+    if !correct {
+        println!("You lose!");
+        println!("The secret number is: {secret_number}");
+    } else {
+        println!("You win!");
     }
 }
