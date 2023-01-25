@@ -1,5 +1,8 @@
-# rust-new-project-template
-A good starting point for a new Rust project
+# rust-new-world
+A list of Rust project
+
+## Demo list
+- Guessing game
 
 ## References
 
