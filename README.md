@@ -2,7 +2,7 @@
 A list of Rust project
 
 ## Demo list
-- Guessing game
+- [Guessing game](./guessing_game)
 
 ## References
 
