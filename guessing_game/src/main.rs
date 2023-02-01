@@ -14,6 +14,8 @@ fn main() {
         print!("\nYou have {} chance", 10 - i);
         if i < 9 {
             println!("s");
+        } else {
+            println!(" ");
         }
 
         println!("Input the number you guess:");
