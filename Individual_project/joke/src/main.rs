@@ -21,7 +21,13 @@ async fn get_joke() -> Result<String, reqwest::Error> {
 
 #[get("/")]
 async fn index() -> HttpResponse {
-    let joke = get_joke().await.unwrap_or_else(|_| "No joke found".to_string());
+    let joke = get_joke()
+    .await
+    .unwrap_or_else(|err| {
+        eprintln!("Error fetching joke: {:?}", err);
+        "No joke found".to_string()
+    });
+
     println!("{}", joke);
     HttpResponse::Ok().body(format!("{}", joke))
 }
