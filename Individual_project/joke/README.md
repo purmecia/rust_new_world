@@ -4,7 +4,7 @@ This microservice is built with Rust and Actix-Web to retrieve random jokes from
 
 You can visit
 ```
-https://hygwcmyebd.us-east-1.awsapprunner.co
+https://hygwcmyebd.us-east-1.awsapprunner.com
 ```
 to have a try.
 
@@ -53,7 +53,7 @@ To deploy the microservice to Minikube:
 We can also use ECR & Cloud9 to contanarize the program, and deploy it with APPRunner. Have a try with the following link.
 
 ```
-https://hygwcmyebd.us-east-1.awsapprunner.co
+https://hygwcmyebd.us-east-1.awsapprunner.com
 ```
 
 ![ECR](img/ECR.png)
