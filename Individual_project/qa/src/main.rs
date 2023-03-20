@@ -1,29 +1,49 @@
-use std::io::{self};
-use reqwest::Url;
+use rust_bert::pipelines::question_answering::{
+    QaInput, QuestionAnsweringConfig, QuestionAnsweringModel,
+};
+use std::io;
+use tokio::runtime::Runtime;
 
-const API_KEY: &str = "73219f57b5b246895d0caa8be76ec1de";
-const API_ENDPOINT: &str = "https://api.openweathermap.org/data/2.5/weather";
+fn main() {
+    let config = QuestionAnsweringConfig::default();
+    let qa_model = QuestionAnsweringModel::new(config).unwrap();
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Get the city name from the user.
-    println!("Enter the name of the city:");
-    let mut city = String::new();
-    io::stdin().read_line(&mut city)?;
+    let mut rt = Runtime::new().unwrap();
 
-    // Build the API URL.
-    let url = Url::parse_with_params(API_ENDPOINT, &[("q", city.trim()), ("appid", API_KEY)])?;
+    println!("Question Answering model is ready!");
 
-    // Send the API request and parse the response.
-    let response = reqwest::blocking::get(url)?;
-    let json = response.json::<serde_json::Value>()?;
+    loop {
+        println!("Enter a context paragraph:");
+        let mut context = String::new();
+        io::stdin()
+            .read_line(&mut context)
+            .expect("Failed to read context");
+    
+        if context.trim().is_empty() {
+            break;
+        }
+    
+        println!("Enter a question based on the context:");
+        let mut question = String::new();
+        io::stdin()
+            .read_line(&mut question)
+            .expect("Failed to read question");
+    
+        let qa_input = QaInput {
+            question: question.trim().to_string(),
+            context: context.trim().to_string(),
+        };
+    
+        let answers = rt.block_on(async { qa_model.predict(&[qa_input], 1, 32) });
 
-    // Extract the temperature and description from the JSON response.
-    let temperature = json["main"]["temp"].as_f64().unwrap() - 273.15; // Convert from Kelvin to Celsius
-    let description = json["weather"][0]["description"].as_str().unwrap();
-
-    // Print the weather information to the console.
-    println!("Temperature: {:.1} °C", temperature);
-    println!("Description: {}", description);
-
-    Ok(())
-}
+        if let Some(answers) = answers.into_iter().next() {
+            if let Some(answer) = answers.get(0) {
+                println!("Answer: {}\n", answer.answer.clone());
+            } else {
+                println!("No answer found.\n");
+            }
+        } else {
+            println!("No answer found.\n");
+        }
+    }
+}    
