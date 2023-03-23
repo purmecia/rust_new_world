@@ -37,3 +37,10 @@ docker run -it --rm qa
 ```
 
 This command runs the project in a Docker container and prompts you for input as usual.
+
+## References
+
+* [rust-new-project-template](https://github.com/noahgift/rust-new-project-template)
+* [The Rust Programming Language](https://doc.rust-lang.org/book/#the-rust-programming-language)
+* [clap](https://docs.rs/clap/latest/clap/)
+* [Command Line Applications in Rust](https://rust-cli.github.io/book/index.html)
