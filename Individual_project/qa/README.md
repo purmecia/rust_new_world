@@ -3,7 +3,7 @@
 This project is a Rust implementation of a question-answering system using the Rust-BERT library. It allows you to enter a context paragraph and a question based on that context, and it returns an answer to the question based on the context.
 
 ## Structural Graph
-
+![structure](img/structure.png)
 
 ## Requirements
 - Rust
