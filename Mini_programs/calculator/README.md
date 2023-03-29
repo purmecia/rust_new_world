@@ -1,4 +1,4 @@
-# Simple Calculator
+# Calculator
 
 A simple calculator written in Rust that performs basic arithmetic operations.
 
