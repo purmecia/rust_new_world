@@ -31,6 +31,19 @@ cargo run
 
 The chatbot is now ready to use. Type your message and press Enter to see the response. To exit the chatbot, type quit or exit.
 
+## Kubernetes (Minikube)
+To deploy the microservice to Minikube:
+
+- Install Minikube on your machine.
+- Run `minikube start` to start Minikube.
+- Run `minikube dashboard --url` to view dashboard in a new terminal
+- Hover over link and "follow link"
+- Create a deployment:  `kubectl create deployment chatbot-node --image=chatbot`
+- View deployment: `kubectl get deployments`
+- View pods:  `kubectl get pods`
+- Create service and expose it: `kubectl expose deployment chatbot-node --type=LoadBalancer --port=8080`
+- View services:  `kubectl get services`
+
 ## Example
 ```
 Chatbot is ready. Type a message:
