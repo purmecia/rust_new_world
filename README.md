@@ -15,13 +15,13 @@ Have Fun!
 - [Search in File](./grrs)
 - [Integer to Roman](./Mini_programs/InttoRoman)
 - [Calculator](./Mini_programs/calculator)
-- [Countdown Timer](./Mini_programs/countdown_timer
-- [Img to ASCII picture](./Mini_programs/imgtoASCII
-- [Longest Parlidrome](./Mini_programs/longest_parlidrome
-- [Password Generator](./Mini_programs/password_generate
-- [Pig Latin Translator](./Mini_programs/pig_latin_translator
-- [Rock Paper Scissor](./Mini_programs/rock_paper_scissor
-- [Temperature Converter](./Mini_programs/temp_converter
+- [Countdown Timer](./Mini_programs/countdown_timer)
+- [Img to ASCII picture](./Mini_programs/imgtoASCII)
+- [Longest Parlidrome](./Mini_programs/longest_parlidrome)
+- [Password Generator](./Mini_programs/password_generate)
+- [Pig Latin Translator](./Mini_programs/pig_latin_translator)
+- [Rock Paper Scissor](./Mini_programs/rock_paper_scissor)
+- [Temperature Converter](./Mini_programs/temp_converter)
 ## References
 
 * [rust-cli-template](https://github.com/kbknapp/rust-cli-template)
